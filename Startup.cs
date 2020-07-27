@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using toDoList_project.Model;
 
 namespace toDoList_project
 {
@@ -22,7 +23,7 @@ namespace toDoList_project
             services.AddControllersWithViews();
 
             // Register CustomersService for DI
-            //services.AddTransient<CustomersService>();
+            services.AddTransient<TaskService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
