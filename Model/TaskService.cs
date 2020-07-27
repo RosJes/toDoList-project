@@ -12,7 +12,7 @@ namespace toDoList_project.Model
         {
             new Task { Id = 1, Name = "Meet Friend",TaskDate=DateTime.Today, Cathegory = "Home" },
             new Task { Id = 2, Name = "Clean House",TaskDate=DateTime.Today, Cathegory = "Home" },
-            new Task { Id = 3, Name = "Buy Groceries",TaskDate=DateTime.Today, Cathegory = "Home" },
+            new Task { Id = 3, Name = "Buy Groceries",TaskDate=DateTime.Today, Cathegory = "Home" }
         };
         public Task[] GetAll()
         {
@@ -25,4 +25,4 @@ namespace toDoList_project.Model
         }
     }
 }
-}
+

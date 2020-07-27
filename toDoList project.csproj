@@ -5,8 +5,4 @@
     <RootNamespace>toDoList_project</RootNamespace>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\" />
-  </ItemGroup>
-
 </Project>

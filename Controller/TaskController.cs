@@ -15,6 +15,8 @@ namespace toDoList_project.Controllers
         {
             this.service = service;
         }
+        [Route("")]
+        [HttpGet]
         public IActionResult Index()
         {
             var model=service.GetAll();
