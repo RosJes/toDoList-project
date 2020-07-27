@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" type="text/css" href="~/CSS/minty-bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="~/CSS/TaskStyle.css" />
+</head>
+<body>
+    <partial name="_NavBar.cshtml" />
+    <br />
+    <div>
+        @RenderBody()
+    </div>
+    @RenderSection("scripts", false)
+</body>
+</html>

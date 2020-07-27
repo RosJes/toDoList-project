@@ -1,0 +1,49 @@
+﻿@model toDoList_project.Model.Todo[]
+@{
+    ViewBag.Title = "Task";
+    ViewBag.Header = "Task";
+}
+
+    <div class="container">
+        <div id="upload"></div>
+        <div class="list-group">
+            @foreach (var task in Model)
+            {
+                @if (task.Id % 2 == 0)
+                {
+                    <a href="@task.Name" class="list-group-item list-group-item-action flex-column align-items-start active">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">@task.Name</h5>
+                            <small>@task.TaskDate</small>
+                        </div>
+                        <p class="mb-1">@task.Description</p>
+                        <small></small>
+                    </a>
+                }
+                else
+                {
+                    <a href="@task.Name" class="list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">@task.Name</h5>
+                            <small class="text-muted">@task.TaskDate</small>
+                        </div>
+                        <p class="mb-1">@task.Description</p>
+                        <small></small>
+                    </a>
+                }
+
+            }
+        </div>
+    </div>
+@*<script>
+    
+        fetch("/_create/",
+            {
+                method: "GET",
+            })
+            .then(res => res.text())
+            .then(html =>
+                document.getElementById("upload").innerHTML = html);
+    
+</script>*@
+@*<a asp-controller="task" asp-action="create">Add a Task</a>*@

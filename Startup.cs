@@ -23,7 +23,7 @@ namespace toDoList_project
             services.AddControllersWithViews();
 
             // Register CustomersService for DI
-            services.AddTransient<TaskService>();
+            services.AddSingleton<TodoService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

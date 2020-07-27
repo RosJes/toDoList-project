@@ -1,0 +1,37 @@
+﻿@*<div class="form-group">
+        <label class="col-form-label col-form-label-lg" for="inputLarge">To Do</label>
+        <input class="form-control form-control-lg" type="text" placeholder="what to do..." id="inputLarge">
+    </div>*@
+@model toDoList_project.Model.Todo
+@{
+    ViewBag.Title = "New Task";
+    ViewBag.Header = "New Task";
+}
+
+    <form asp-controller="task" asp-action="create">
+        <label asp-for="Id"></label>
+        <input asp-for="Id" />
+        <span asp-validation-for="Id"></span>
+
+        <label asp-for="Name"></label>
+        <input asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+
+        <label asp-for="TaskDate"></label>
+        <input asp-for="TaskDate" />
+        <span asp-validation-for="TaskDate"></span>
+        <label asp-for="Description"></label>
+        <input asp-for="Description" />
+        <span asp-validation-for="Description"></span>
+
+        <br />
+        <input type="submit" value="Create" />
+    </form>
+
+@section scripts
+{
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.17.0/jquery.validate.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/mvc/5.2.3/jquery.validate.unobtrusive.min.js"></script>
+}
+
