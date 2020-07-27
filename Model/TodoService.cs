@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using toDoList_project.Model.ViewModel;
 
 namespace toDoList_project.Model
 {
@@ -19,11 +20,20 @@ namespace toDoList_project.Model
             return _tasks.ToArray();
         }
         static int id = 4;
-        public void Create(Todo task)
+        public void Create(CreateVM task)
         {
-            _tasks.Add(task);
-            //task.Id = id;
-            //id++;
+            _tasks.Add(new Todo
+            {
+               Id=id,
+               Name=task.Name,
+               TaskDate=DateTime.Today,
+               Description=task.Description,
+               Cathegory="Home",
+               ischecked=false
+            }
+                );
+
+            id++;
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using toDoList_project.Model;
+using toDoList_project.Model.ViewModel;
 namespace toDoList_project.Controllers
 {
     public class ToDoController : Controller
@@ -34,7 +35,7 @@ namespace toDoList_project.Controllers
 
         [Route("create")]
         [HttpPost]
-        public IActionResult Create(Todo task) // Model binding
+        public IActionResult Create(CreateVM task) // Model binding
         {
             // Validate (server-side)
             if (!ModelState.IsValid)

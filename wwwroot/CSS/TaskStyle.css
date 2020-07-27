@@ -12,5 +12,8 @@ ul li.checked {
     color: #fff;
     text-decoration: line-through;
 }
+.list{
+    float:right;
+}
 
     
