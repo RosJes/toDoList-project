@@ -12,5 +12,6 @@ namespace toDoList_project.Model
         public DateTime TaskDate { get; set; }
         public string Cathegory { get; set; }
         public string Description { get; set; }
+        public bool ischecked { get; set; }
     }
 }

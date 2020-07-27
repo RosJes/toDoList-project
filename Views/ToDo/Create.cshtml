@@ -3,30 +3,53 @@
         <input class="form-control form-control-lg" type="text" placeholder="what to do..." id="inputLarge">
     </div>*@
 @model toDoList_project.Model.Todo
-@{
-    ViewBag.Title = "New Task";
-    ViewBag.Header = "New Task";
-}
+<!DOCTYPE html>
 
-    <form asp-controller="task" asp-action="create">
-        <label asp-for="Id"></label>
-        <input asp-for="Id" />
-        <span asp-validation-for="Id"></span>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="~/CSS/minty-bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="~/CSS/TaskStyle.css" />
+</head>
+<body>
+    <div class="form-group" style="padding-left:100px">
+        <form asp-controller="task" asp-action="create">
+            <label asp-for="Id"></label>
+            <input asp-for="Id" />
+            <span asp-validation-for="Id"></span>
 
-        <label asp-for="Name"></label>
-        <input asp-for="Name" />
-        <span asp-validation-for="Name"></span>
+            <label asp-for="Name"></label>
+            <input asp-for="Name" />
+            <span asp-validation-for="Name"></span>
 
-        <label asp-for="TaskDate"></label>
-        <input asp-for="TaskDate" />
-        <span asp-validation-for="TaskDate"></span>
-        <label asp-for="Description"></label>
-        <input asp-for="Description" />
-        <span asp-validation-for="Description"></span>
+            <label asp-for="TaskDate"></label>
+            <input asp-for="TaskDate" />
+            <span asp-validation-for="TaskDate"></span>
+            <label asp-for="Description"></label>
+            <input asp-for="Description" />
+            <span asp-validation-for="Description"></span>
 
-        <br />
-        <input type="submit" value="Create" />
-    </form>
+            <br />
+            <input type="submit" value="Create" />
+        </form>
+    </div>
+    <div id="list"></div>
+</body>
+</html>
+
+<script>
+    ShowForm()
+    function ShowForm() {
+        fetch("/_todolist/",
+            {
+                method: "GET",
+            })
+            .then(res => res.text())
+            .then(html =>
+                document.getElementById("list").innerHTML = html);
+
+    }
+</script>
 
 @section scripts
 {
