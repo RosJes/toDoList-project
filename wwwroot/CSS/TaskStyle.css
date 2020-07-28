@@ -1,8 +1,10 @@
 ﻿.container{
     margin:50px
 }
-.Delete {
-    margin: 50px
+#Delete {
+    margin: 50px;
+    border:solid,10px;
+    border-color:orangered
 }
 .Edit {
     margin: 50px

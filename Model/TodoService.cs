@@ -17,7 +17,7 @@ namespace toDoList_project.Model
         };
         public Todo[] GetAll()
         {
-            return _tasks.ToArray();
+            return _tasks.OrderByDescending(o => o.TaskDate).ToArray();
         }
         static int id = 4;
         public void Create(CreateVM task)
