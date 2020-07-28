@@ -66,7 +66,27 @@ namespace toDoList_project.Controllers
             // Redirect to index
             return RedirectToAction("Create");
         }
+        
+        [Route("Edit/{id}")]
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            var model = service.GetById(id);
+            return View(model);
+        }
+        [Route("Edit/{id}")]
+        [HttpPost]
+        public IActionResult Edit(Todo task)
+        {
+            if (!ModelState.IsValid)
+                return View(task);
 
+            // Add customer to DB
+            service.Edit(task);
+
+            // Redirect to index
+            return RedirectToAction("Create");
+        }
     }
 }
 

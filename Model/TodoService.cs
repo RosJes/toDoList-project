@@ -38,6 +38,25 @@ namespace toDoList_project.Model
            var item= _tasks.Where(o => o.Id == id).FirstOrDefault();
             _tasks.Remove(item);
         }
+        public Todo GetById(int id)
+        {
+            return _tasks.Where(p => p.Id == id).First();
+        }
+        public void Edit(Todo task)
+        {
+            _tasks.Add(new Todo
+            {
+                Id = task.Id,
+                Name = task.Name,
+                TaskDate = DateTime.Today,
+                Description = task.Description,
+                Cathegory = "Home",
+            }
+                );
+            _tasks.Remove(GetById(task.Id));
+
+
+        }
     }
 }
 
