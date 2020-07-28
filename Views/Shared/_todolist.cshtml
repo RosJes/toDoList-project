@@ -5,8 +5,9 @@
 
             @foreach (var task in Model)
             {
-                <span id="done">false @task.Id</span>
-                <li @*class="checked"*@>
+                <span id="@task.Id">false</span>
+
+                <li>
                     <a @task.Name class="list-group-item list-group-item-action flex-column align-items-start active">
                         <div class="d-flex w-100 justify-content-between">
                             <h5 class="mb-1">@task.Name</h5>
@@ -15,7 +16,7 @@
                         <p class="mb-1">@task.Description</p>
                         <small></small>
                     </a>
-                    <button onclick="ChangetoChecked()">Done</button>
+                    <button onclick="Check(@task.Id)">Done</button>
 
                 </li>
 
