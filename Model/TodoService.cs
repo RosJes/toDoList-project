@@ -26,7 +26,7 @@ namespace toDoList_project.Model
             {
                Id=id,
                Name=task.Name,
-               TaskDate=DateTime.Today,
+               TaskDate=task.TaskDate,
                Description=task.Description,
                Cathegory="Home",
             }
@@ -48,7 +48,7 @@ namespace toDoList_project.Model
             {
                 Id = task.Id,
                 Name = task.Name,
-                TaskDate = DateTime.Today,
+                TaskDate = task.TaskDate,
                 Description = task.Description,
                 Cathegory = "Home",
             }

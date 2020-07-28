@@ -20,17 +20,19 @@
                                 <h5 class="mb-1">@task.Name</h5>
                                 <small>@task.TaskDate</small>
                             </div>
+                            <img src="https://img.icons8.com/color/28/000000/delete-sign.png" style="float:right;cursor:pointer"onclick="Delete(@task.Id)" />
+                            @*<img src="https://img.icons8.com/color/28/000000/leave.png" style="float:right;cursor:pointer" />*@
+                            @*<img src="https://img.icons8.com/fluent/28/000000/check-all.png" style="float:right;cursor:pointer" />*@
+                            @*<img src="https://img.icons8.com/fluent/28/000000/edit-property--v2.png" style="float:right;cursor:pointer" />*@
                             <p class="mb-1">@task.Description</p>
                             <small>Deadline: </small>
                         </a>
-                        <button onclick="Check(@task.Id)">Done</button>
+                        
+                        @*<button onclick="Check(@task.Id)">Done</button>
                         <button onclick="Delete(@task.Id)">Delete</button>
-                        <button onclick="Edit(@task.Id)">Edit</button>
+                        <button onclick="Edit(@task.Id)">Edit</button>*@
                     </li>
-
-
                 }
-
         </ul>
     </div>
 </div>

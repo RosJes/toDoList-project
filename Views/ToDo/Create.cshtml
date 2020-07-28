@@ -16,9 +16,12 @@
             <span asp-validation-for="Name"></span>
 
             <label style="display:none" asp-for="Description"></label>
-            <input asp-for="Description" placeholder="description..."/>
+            <input asp-for="Description" placeholder="description..." />
             <span asp-validation-for="Description"></span>
-            <input  type="submit" value="Add" />
+            <label style="display:none" asp-for="TaskDate"></label>
+            <input asp-for="TaskDate"  />
+            <span asp-validation-for="TaskDate"></span>
+            <input type="submit" value="Add" />
         </form>
     </div>
     <div id="list"></div>
