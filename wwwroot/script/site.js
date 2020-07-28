@@ -2,17 +2,18 @@
 function Check(id) {
     console.log(counter)
     var att = document.createAttribute("class"); 
-    att.value = "checked";     
     let x = document.getElementById(id)
-    let y = document.getElementsByTagName('LI')[id];
+    let li = document.getElementById('item '+id)
     if (counter % 2 == 0) {
         x.innerText = 'true'
-       y.setAttributeNode(att);           
-       
+        att.value = "checked";    
+        li.setAttributeNode(att)
     }
-    else
+    else {
         x.innerText = 'false'
-
+        att.value='unchecked'
+        li.setAttributeNode(att)
+    }
     counter++
 }
 
