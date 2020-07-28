@@ -24,6 +24,7 @@ function ShowForm() {
 
 }
 function Delete(x) {
+    topFunction()
     fetch("/Delete/" + x,
         {
             method: "GET",
@@ -31,5 +32,23 @@ function Delete(x) {
         .then(res => res.text())
         .then(html =>
             document.getElementById("Delete").innerHTML = html);
+
+}
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+function Edit(x) {
+    let li = document.getElementById('item ' + x)
+    li.style.display = 'none'
+    topFunction()
+    fetch("/Edit/" + x,
+        {
+            method: "GET",
+        })
+        .then(res => res.text())
+        .then(html =>
+            document.getElementById("Edit").innerHTML = html);
+
 
 }
