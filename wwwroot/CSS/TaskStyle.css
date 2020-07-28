@@ -1,12 +1,12 @@
 ﻿.container{
     margin:50px
 }
-.checked {
+/*.checked {
    
     border-color: #fff;
     border-style: solid;
     border-width: 0 2px 2px 0;
-}
+}*/
 /* When clicked on, add a background color and strike out text */
 .list{
     float:right;

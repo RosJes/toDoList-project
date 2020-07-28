@@ -47,7 +47,26 @@ namespace toDoList_project.Controllers
             // Redirect to index
             return RedirectToAction("Create");
         }
-       
+        [Route("Delete/{id}")]
+        [HttpGet]
+        public ActionResult Delete()
+        {
+            return View();
+        }
+        [Route("Delete/{id}")]
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            if (!ModelState.IsValid)
+                return View(id);
+
+            // Add customer to DB
+            service.Delete(id);
+
+            // Redirect to index
+            return RedirectToAction("Create");
+        }
+
     }
 }
 

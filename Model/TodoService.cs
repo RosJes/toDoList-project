@@ -29,11 +29,14 @@ namespace toDoList_project.Model
                TaskDate=DateTime.Today,
                Description=task.Description,
                Cathegory="Home",
-               //ischecked=false
             }
                 );
-
             id++;
+        }
+        public void Delete(int id)
+        {
+           var item= _tasks.Where(o => o.Id == id).FirstOrDefault();
+            _tasks.Remove(item);
         }
     }
 }
