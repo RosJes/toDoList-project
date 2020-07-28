@@ -16,6 +16,14 @@ namespace toDoList_project.Controllers
         {
             this.service = service;
         }
+        [Route("")]
+        [Route("Index")]
+        [HttpGet]
+        public IActionResult Index()
+        {
+            // Show empty form
+            return View();
+        }
         [Route("_todolist")]
         [HttpGet]
         public IActionResult _todolist()
