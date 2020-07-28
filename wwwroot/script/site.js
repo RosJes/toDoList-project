@@ -39,6 +39,8 @@ function topFunction() {
     document.documentElement.scrollTop = 0;
 }
 function Edit(x) {
+    let listitem = document.getElementById('list-item')
+    listitem.style.display='inline'
     let li = document.getElementById('item ' + x)
     li.style.display = 'none'
     topFunction()

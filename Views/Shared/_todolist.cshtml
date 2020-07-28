@@ -1,29 +1,35 @@
 ﻿<div class="container">
     <div id="Delete"></div>
-    <div id="Edit"></div>
     <div class="list-group">
         <ul id="list">
+            <div id="list-item" class="list-group"style="display:none">
+                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+                    <div class="d-flex w-100 justify-content-between">
+                    </div>
+                    <div id="Edit"></div>
+                </a>
+                </div>
+            <br />
+                @foreach (var task in Model)
+                {
+                    <span style="display:none" id="@task.Id">false</span>
 
-            @foreach (var task in Model)
-            {
-                <span style="display:none" id="@task.Id">false</span>
-
-                <li style=" list-style-type: none;" id="item @task.Id">
-                    <a @task.Name class="list-group-item list-group-item-action flex-column align-items-start active">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">@task.Name</h5>
-                            <small>@task.TaskDate</small>
-                        </div>
-                        <p class="mb-1">@task.Description</p>
-                        <small>Deadline: </small>
-                    </a>
-                    <button onclick="Check(@task.Id)">Done</button>
-                    <button onclick="Delete(@task.Id)">Delete</button>
-                    <button onclick="Edit(@task.Id)">Edit</button>
-                </li>
+                    <li style=" list-style-type: none;" id="item @task.Id">
+                        <a @task.Name class="list-group-item list-group-item-action flex-column align-items-start active">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">@task.Name</h5>
+                                <small>@task.TaskDate</small>
+                            </div>
+                            <p class="mb-1">@task.Description</p>
+                            <small>Deadline: </small>
+                        </a>
+                        <button onclick="Check(@task.Id)">Done</button>
+                        <button onclick="Delete(@task.Id)">Delete</button>
+                        <button onclick="Edit(@task.Id)">Edit</button>
+                    </li>
 
 
-            }
+                }
 
         </ul>
     </div>
