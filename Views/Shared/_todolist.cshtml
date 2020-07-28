@@ -5,23 +5,19 @@
 
             @foreach (var task in Model)
             {
-                <span id="@task.Id">false</span>
-                
-                <li id="item @task.Id">
-                    <a @task.Name class="list-group-item list-group-item-action flex-column align-items-start active">
+                <span style="display:none" id="@task.Id">false</span>
+
+                <li style=" list-style-type: none;"id="item @task.Id">
+                    <a onclick="Check(@task.Id)" @task.Name class="list-group-item list-group-item-action flex-column align-items-start active">
                         <div class="d-flex w-100 justify-content-between">
                             <h5 class="mb-1">@task.Name</h5>
                             <small>@task.TaskDate</small>
                         </div>
                         <p class="mb-1">@task.Description</p>
-                        <small></small>
+                        <small>Deadline: </small>
                     </a>
-                    <button onclick="Check(@task.Id)">Done</button>
-
                 </li>
-
-
-
+                
             }
 
         </ul>
