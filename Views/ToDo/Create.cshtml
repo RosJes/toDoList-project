@@ -29,20 +29,6 @@
 </body>
 </html>
 
-<script>
-    ShowForm()
-    function ShowForm() {
-        fetch("/_todolist/",
-            {
-                method: "GET",
-            })
-            .then(res => res.text())
-            .then(html =>
-                document.getElementById("list").innerHTML = html);
-
-    }
-</script>
-
 @section scripts
 {
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>

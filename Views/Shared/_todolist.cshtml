@@ -1,5 +1,5 @@
 ﻿<div class="container">
-
+    <div id="Delete"></div>
     <div class="list-group">
         <ul id="list">
 
@@ -7,7 +7,7 @@
             {
                 <span style="display:none" id="@task.Id">false</span>
 
-                <li style=" list-style-type: none;"id="item @task.Id">
+                <li style=" list-style-type: none;" id="item @task.Id">
                     <a onclick="Check(@task.Id)" @task.Name class="list-group-item list-group-item-action flex-column align-items-start active">
                         <div class="d-flex w-100 justify-content-between">
                             <h5 class="mb-1">@task.Name</h5>
@@ -17,9 +17,12 @@
                         <small>Deadline: </small>
                     </a>
                 </li>
-                
+                <button onclick="Delete(@task.Id)">Delete</button>
+
             }
 
         </ul>
-        </div>
-   </div>
+    </div>
+</div>
+
+
