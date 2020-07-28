@@ -7,6 +7,20 @@
 .Edit {
     margin: 50px
 }
+.close {
+    float:right;
+    right: 0;
+    top: 0;
+    padding: 10px 14px 10px 14px;
+    border-radius:4px
+}
+
+    .close:hover {
+        background-color: #f44336;
+        cursor: pointer;
+        color: white;
+    }
+
 /*.checked {
    
     border-color: #fff;
