@@ -1,5 +1,7 @@
 ﻿<div class="container">
-    <div id="Delete"></div>
+    <div class="alert alert-dismissible alert-danger">
+        <div id="Delete"></div>
+    </div>
     <div class="list-group">
         <ul id="list">
             <div id="list-item" class="list-group"style="display:none">
@@ -31,6 +33,7 @@
                         <button onclick="Delete(@task.Id)">Delete</button>
                         <button onclick="Edit(@task.Id)">Edit</button>*@
                     </li>
+                    <br />
                 }
         </ul>
     </div>
