@@ -11,10 +11,12 @@ namespace toDoList_project.Controllers
     public class ToDoController : Controller
     {
         TodoService service;
+        CalenderService calender;
 
-        public ToDoController(TodoService service) // DI
+        public ToDoController(TodoService service,CalenderService calender) // DI
         {
             this.service = service;
+            this.calender = calender;
         }
         [Route("")]
         [Route("Index")]
@@ -23,6 +25,14 @@ namespace toDoList_project.Controllers
         {
             // Show empty form
             return View();
+        }
+        [Route("Calender/{year}/{month}")]
+        [HttpGet]
+        public IActionResult Calender(int year,int month)
+        {
+            var model = calender.GetAllDays(year,month);
+            // Show empty form
+            return View(model);
         }
         [Route("_todolist")]
         [HttpGet]
