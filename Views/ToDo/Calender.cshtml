@@ -9,6 +9,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
 </head>
 <body>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#home">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#profile">Profile</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Separated link</a>
+            </div>
+        </li>
+    </ul>
     <div class="grid-container">
         <div class="grid-item">Mon</div>
         <div class="grid-item">Tue</div>
@@ -25,7 +46,22 @@
             }
             else
             {
-                <div class="grid-item"> @day.Day.Day</div>
+    <div class="grid-item">
+        @day.Day.Day
+    <ul>
+
+        @foreach (var item in day.bookedTask)
+        {
+            if (day.Day.Day == item.TaskDate.Day&&day.Day.Month==item.TaskDate.Month)
+            {
+        <li> @item.Name @item.TaskDate.Hour:@item.TaskDate.Minute</li>
+            }
+
+
+        }
+    </ul>
+    </div>
+               
 
             }
 

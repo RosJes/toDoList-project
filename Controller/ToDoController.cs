@@ -30,7 +30,7 @@ namespace toDoList_project.Controllers
         [HttpGet]
         public IActionResult Calender(int year,int month)
         {
-            var model = calender.GetAllDays(year,month);
+            var model = service.GetAllDays(year,month);
             // Show empty form
             return View(model);
         }

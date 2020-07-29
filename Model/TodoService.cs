@@ -3,18 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using toDoList_project.Model.ViewModel;
+using System.Globalization;
 
 namespace toDoList_project.Model
 {
     public class TodoService
     {
+       
         //// Our "poor mans" DB
         List<Todo> _tasks = new List<Todo>
         {
-            new Todo { Id = 1, Name = "Meet Friend",TaskDate=DateTime.Today, Cathegory = "Home",Description="Jane att 10:00"},
+            new Todo { Id = 1, Name = "Meet Friend",TaskDate=DateTime.Parse("07/29/2020 22:34:11"), Cathegory = "Home",Description="Jane att 10:00"},
             new Todo { Id = 2, Name = "Clean House",TaskDate=DateTime.Today, Cathegory = "Home",Description="Reminder:Don't forget the fridge"},
-            new Todo { Id = 3, Name = "Buy Groceries",TaskDate=DateTime.Today, Cathegory = "Home",Description="Apples,Pasta,Ketchup"}
+            new Todo { Id = 3, Name = "Buy Groceries",TaskDate=DateTime.Today, Cathegory = "Home",Description="Apples,Pasta,Ketchup"},
+            new Todo { Id = 3, Name = "Buy Groceries",TaskDate= DateTime.Parse("08/18/2018 07:22:16"), Cathegory = "Home",Description="Apples,Pasta,Ketchup"}
         };
+        Calender calender = new Calender();
         public Todo[] GetAll()
         {
             return _tasks.OrderByDescending(o => o.TaskDate).ToArray();
@@ -56,6 +60,68 @@ namespace toDoList_project.Model
             _tasks.Remove(GetById(task.Id));
 
 
+        }
+        List<Calender> _calender;
+        public Calender[] GetAllDays(int year, int month)
+        {
+            var days = 1;
+            var hours = 22;
+            var minutes = 34;
+            var seconds = 11;
+            var reservations = _tasks.ToArray();
+            DateTime date = new DateTime(year, month,days,hours,minutes,seconds);
+            var calendarDate = new DateTime(date.Year, date.Month, 1);
+            int weekdayInt = (int)new DateTime(date.Year, date.Month, 1).DayOfWeek - 1; //mon = 1, tis = 2 osv...
+            int totalCalendarSpots = (DateTime.DaysInMonth(date.Year, date.Month) + weekdayInt);
+            _calender = new List<Calender>();
+            var tasklist = new List<Todo>();
+            for (int i = 0; weekdayInt < totalCalendarSpots; i++)//dynamisk forloop
+            {
+                if (i == weekdayInt)
+                {
+                    var day = new Calender
+                    {
+                        Id = i,
+                        Year = year,
+                        Month = DateTime.DaysInMonth(year, month),
+                        Day = calendarDate,
+                        bookedTask = tasklist,
+                        EmptyDay = false
+                        
+                };
+                    weekdayInt++;
+                    date = date.AddDays(1);
+                    calendarDate = calendarDate.AddDays(1);
+                        tasklist.AddRange(BookedTask((DateTime.Parse(date.ToString()))));
+                    _calender.Add(day);
+                    
+                }
+                else
+                {
+                    var day = new Calender
+                    {
+                        Id = i,
+                        Year = 0,
+                        Month = 0,
+                        Day = DateTime.MinValue,
+                        EmptyDay = true
+                    };
+                    _calender.Add(day);
+
+
+                }
+               
+            }
+            return _calender.ToArray();
+        }
+        public List<Todo> BookedTask(DateTime date)
+        {
+            if (_tasks != null)
+                return _tasks.Where(o => o.TaskDate.Day == date.Day).ToList();
+            else
+                throw new Exception("finns inget");
+           
+            
         }
     }
 }

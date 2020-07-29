@@ -12,5 +12,6 @@ namespace toDoList_project.Model
         public int Month { get; set; }
         public DateTime Day { get; set; }
         public  bool EmptyDay { get; set; }
+        public  List<Todo> bookedTask { get; set; }
     }
 }
