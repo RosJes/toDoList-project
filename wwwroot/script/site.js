@@ -12,15 +12,28 @@ function Check(id) {
     }
     counter++
 }
-ShowForm()
-function ShowForm() {
-    fetch("/_todolist/",
+
+ShowForm("Home")
+CatNavBar()
+function ShowForm(x) {
+    
+    fetch("/_todolist/"+x,
         {
             method: "GET",
         })
         .then(res => res.text())
         .then(html =>
             document.getElementById("list").innerHTML = html);
+
+}
+function CatNavBar() {
+    fetch("/_CatNavBar",
+        {
+            method: "GET",
+        })
+        .then(res => res.text())
+        .then(html =>
+            document.getElementById("CatNavBar").innerHTML = html);
 
 }
 function Delete(x) {

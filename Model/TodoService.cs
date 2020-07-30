@@ -16,12 +16,16 @@ namespace toDoList_project.Model
             new Todo { Id = 1, Name = "Meet Friend",TaskDate=DateTime.Parse("07/29/2020 22:34:11"), Cathegory = "Home",Description="Jane att 10:00"},
             new Todo { Id = 2, Name = "Clean House",TaskDate=DateTime.Today, Cathegory = "Home",Description="Reminder:Don't forget the fridge"},
             new Todo { Id = 3, Name = "Buy Groceries",TaskDate=DateTime.Today, Cathegory = "Home",Description="Apples,Pasta,Ketchup"},
-            new Todo { Id = 3, Name = "Buy Groceries",TaskDate= DateTime.Parse("08/18/2018 07:22:16"), Cathegory = "Home",Description="Apples,Pasta,Ketchup"}
+            new Todo { Id = 4, Name = "Buy Groceries",TaskDate= DateTime.Parse("08/18/2018 07:22:16"), Cathegory = "Home",Description="Apples,Pasta,Ketchup"},
+         new Todo { Id = 5, Name = "Leave Report",TaskDate=DateTime.Parse("07/29/2020 22:34:11"), Cathegory = "Work",Description="Jane att 10:00"},
+            new Todo { Id = 6, Name = "Book meeting",TaskDate=DateTime.Today, Cathegory = "Work",Description="Promotion"},
+            new Todo { Id = 7, Name = "Talk to John",TaskDate=DateTime.Today, Cathegory = "Work",Description="Lunch"},
+            new Todo { Id = 8, Name = "Call Ellen",TaskDate= DateTime.Parse("08/18/2018 07:22:16"), Cathegory = "Work",Description="+42738056892"}
         };
         Calender calender = new Calender();
-        public Todo[] GetAll()
+        public Todo[] GetAll(string cathegory)
         {
-            return _tasks.OrderByDescending(o => o.TaskDate).ToArray();
+            return _tasks.Where(o=>o.Cathegory==cathegory).OrderByDescending(o => o.TaskDate).ToArray();
         }
         static int id = 4;
         public void Create(CreateVM task)
@@ -32,7 +36,7 @@ namespace toDoList_project.Model
                Name=task.Name,
                TaskDate=task.TaskDate,
                Description=task.Description,
-               Cathegory="Home",
+               Cathegory=task.Cathegory,
             }
                 );
             id++;
@@ -54,7 +58,7 @@ namespace toDoList_project.Model
                 Name = task.Name,
                 TaskDate = task.TaskDate,
                 Description = task.Description,
-                Cathegory = "Home",
+                Cathegory = task.Cathegory,
             }
                 );
             _tasks.Remove(GetById(task.Id));
@@ -92,7 +96,7 @@ namespace toDoList_project.Model
                     weekdayInt++;
                     date = date.AddDays(1);
                     calendarDate = calendarDate.AddDays(1);
-                        tasklist.AddRange(BookedTask((DateTime.Parse(date.ToString()))));
+                    tasklist.AddRange(BookedTask((DateTime.Parse(date.ToString()))));
                     _calender.Add(day);
                     
                 }
@@ -122,6 +126,10 @@ namespace toDoList_project.Model
                 throw new Exception("finns inget");
            
             
+        }
+        public string[] CatNavBar()
+        {
+            return _tasks.Select(o=>o.Cathegory).Distinct().ToArray();
         }
     }
 }

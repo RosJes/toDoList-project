@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
 </head>
 <body>
-    <div class="form-group"style="padding-left:200px">
+    <div class="form-group" style="padding-left:200px">
         <form asp-controller="task" asp-action="create">
             <label style="display:none" asp-for="Name"></label>
             <input asp-for="Name" placeholder="New Task..." />
@@ -19,11 +19,15 @@
             <input asp-for="Description" placeholder="description..." />
             <span asp-validation-for="Description"></span>
             <label style="display:none" asp-for="TaskDate"></label>
-            <input asp-for="TaskDate"  />
-            <span asp-validation-for="TaskDate"></span>
+            <input asp-for="TaskDate" />
+            <span asp-validation-for="Cathegory"></span>
+            <label style="display:none" asp-for="Cathegory"></label>
+            <input asp-for="Cathegory" placeholder="Cathegory..." />
+            <span asp-validation-for="Cathegory"></span>
             <input type="submit" value="Add" />
         </form>
     </div>
+    <div id="CatNavBar"></div>
     <div id="list"></div>
 </body>
 </html>

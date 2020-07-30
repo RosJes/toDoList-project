@@ -34,11 +34,19 @@ namespace toDoList_project.Controllers
             // Show empty form
             return View(model);
         }
-        [Route("_todolist")]
+        [Route("_CatNavBar")]
         [HttpGet]
-        public IActionResult _todolist()
+        public IActionResult _CatNavBar()
         {
-            var model = service.GetAll();
+            var model = service.CatNavBar();
+            // Show empty form
+            return PartialView(model);
+        }
+        [Route("_todolist/{cathegory}")]
+        [HttpGet]
+        public IActionResult _todolist(string cathegory)
+        {
+            var model = service.GetAll(cathegory);
             // Show empty form
             return PartialView(model);
         }
