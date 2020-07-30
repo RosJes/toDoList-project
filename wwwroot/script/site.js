@@ -15,6 +15,17 @@ function Check(id) {
 
 ShowForm("Home")
 CatNavBar()
+calender(2020,07,'Home')
+function calender(year, month, cathegory) {
+    fetch("/_calender/" + year + '/' + month + '/'+cathegory,
+        {
+            method: "GET",
+        })
+        .then(res => res.text())
+        .then(html =>
+            document.getElementById("_calender").innerHTML = html);
+
+}
 function ShowForm(x) {
     
     fetch("/_todolist/"+x,

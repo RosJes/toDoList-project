@@ -26,13 +26,19 @@ namespace toDoList_project.Controllers
             // Show empty form
             return View();
         }
-        [Route("Calender/{year}/{month}")]
+        [Route("_calender/{year}/{month}/{cathegory}")]
         [HttpGet]
-        public IActionResult Calender(int year,int month)
+        public IActionResult _calender(int year, int month, string cathegory)
         {
-            var model = service.GetAllDays(year,month);
+            var model = service.GetAllDays(year, month, cathegory);
             // Show empty form
-            return View(model);
+            return PartialView(model);
+        }
+        [Route("Calender")]
+        [HttpGet]
+        public IActionResult Calender()
+        {
+            return View();
         }
         [Route("_CatNavBar")]
         [HttpGet]

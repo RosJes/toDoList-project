@@ -14,12 +14,12 @@ namespace toDoList_project.Model
         List<Todo> _tasks = new List<Todo>
         {
             new Todo { Id = 1, Name = "Meet Friend",TaskDate=DateTime.Parse("07/29/2020 22:34:11"), Cathegory = "Home",Description="Jane att 10:00"},
-            new Todo { Id = 2, Name = "Clean House",TaskDate=DateTime.Today, Cathegory = "Home",Description="Reminder:Don't forget the fridge"},
-            new Todo { Id = 3, Name = "Buy Groceries",TaskDate=DateTime.Today, Cathegory = "Home",Description="Apples,Pasta,Ketchup"},
+            new Todo { Id = 2, Name = "Clean House",TaskDate=DateTime.Parse("07/01/2020 22:34:11"), Cathegory = "Home",Description="Reminder:Don't forget the fridge"},
+            new Todo { Id = 3, Name = "Buy Groceries",TaskDate=DateTime.Parse("07/15/2020 22:34:11"), Cathegory = "Home",Description="Apples,Pasta,Ketchup"},
             new Todo { Id = 4, Name = "Buy Groceries",TaskDate= DateTime.Parse("08/18/2018 07:22:16"), Cathegory = "Home",Description="Apples,Pasta,Ketchup"},
          new Todo { Id = 5, Name = "Leave Report",TaskDate=DateTime.Parse("07/29/2020 22:34:11"), Cathegory = "Work",Description="Jane att 10:00"},
-            new Todo { Id = 6, Name = "Book meeting",TaskDate=DateTime.Today, Cathegory = "Work",Description="Promotion"},
-            new Todo { Id = 7, Name = "Talk to John",TaskDate=DateTime.Today, Cathegory = "Work",Description="Lunch"},
+            new Todo { Id = 6, Name = "Book meeting",TaskDate=DateTime.Now, Cathegory = "Work",Description="Promotion"},
+            new Todo { Id = 7, Name = "Talk to John",TaskDate=DateTime.Now, Cathegory = "Work",Description="Lunch"},
             new Todo { Id = 8, Name = "Call Ellen",TaskDate= DateTime.Parse("08/18/2018 07:22:16"), Cathegory = "Work",Description="+42738056892"}
         };
         Calender calender = new Calender();
@@ -66,7 +66,7 @@ namespace toDoList_project.Model
 
         }
         List<Calender> _calender;
-        public Calender[] GetAllDays(int year, int month)
+        public Calender[] GetAllDays(int year, int month,string cathegory)
         {
             var days = 1;
             var hours = 22;
@@ -96,7 +96,7 @@ namespace toDoList_project.Model
                     weekdayInt++;
                     date = date.AddDays(1);
                     calendarDate = calendarDate.AddDays(1);
-                    tasklist.AddRange(BookedTask((DateTime.Parse(date.ToString()))));
+                    tasklist.AddRange(BookedTask((DateTime.Parse(date.ToString())),cathegory));
                     _calender.Add(day);
                     
                 }
@@ -118,10 +118,10 @@ namespace toDoList_project.Model
             }
             return _calender.ToArray();
         }
-        public List<Todo> BookedTask(DateTime date)
+        public List<Todo> BookedTask(DateTime date,string Cathegory)
         {
             if (_tasks != null)
-                return _tasks.Where(o => o.TaskDate.Day == date.Day).ToList();
+                return _tasks.Where(o => o.TaskDate.Day == date.Day&&o.Cathegory==Cathegory).ToList();
             else
                 throw new Exception("finns inget");
            
