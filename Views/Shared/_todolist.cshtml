@@ -1,41 +1,48 @@
 ﻿
     <div class="container">
             <div id="Delete"></div>
-        <div class="list-group">
-            <ul id="list">
-                <div id="list-item" class="list-group" style="display:none">
-                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
-                        <div class="d-flex w-100 justify-content-between">
-                        </div>
-                        <div id="Edit"></div>
-                    </a>
+            <div class="list-group">
+                <div class="alert alert-dismissible alert-warning">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <h4 class="alert-heading"><img src="https://img.icons8.com/color/28/000000/leave.png"/> Reminder!</h4>
+                    <p class="mb-0">Final Teachers Programme Exam. 3 days left to deadline
+                    <br/>
+                    <a href="#" class="alert-link">check calender</a>.</p>
                 </div>
-                <br />
-                @foreach (var task in Model)
-                {
-                    <span style="display:none" id="@task.Id">false</span>
-
-                    <li style=" list-style-type: none;" id="item @task.Id">
-                        <a @task.Name class="list-group-item list-group-item-action flex-column align-items-start active">
+                <ul id="list">
+                    <div id="list-item" class="list-group" style="display:none">
+                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
                             <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1">@task.Name</h5>
-                                <small>@task.TaskDate</small>
                             </div>
-                            <span class="close" onclick="Delete(@task.Id)">X</span>
-                            <img src="https://img.icons8.com/color/28/000000/leave.png" onclick="Check(@task.Id)" style="float:right;cursor:pointer" />
-                            <img src="https://img.icons8.com/ultraviolet/28/000000/edit-property.png" onclick="Edit(@task.Id)" style="float:right;cursor:pointer" />
-                            <p class="mb-1">@task.Description</p>
-                            <small>Deadline: </small>
+                            <div id="Edit"></div>
                         </a>
-
-                        @*<button onclick="Check(@task.Id)">Done</button>
-                        <button onclick="Delete(@task.Id)">Delete</button>
-                        <button onclick="Edit(@task.Id)">Edit</button>*@
-                    </li>
+                    </div>
                     <br />
-                }
-            </ul>
-        </div>
+                    @foreach (var task in Model)
+                    {
+                        <span style="display:none" id="@task.Id">false</span>
+
+                        <li style=" list-style-type: none;" id="item @task.Id">
+                            <a @task.Name class="list-group-item list-group-item-action flex-column align-items-start active">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">@task.Name</h5>
+                                    <small>@task.TaskDate</small>
+                                </div>
+                                <span class="close" onclick="Delete(@task.Id)">X</span>
+                                <img src="https://img.icons8.com/color/28/000000/leave.png" onclick="Check(@task.Id)" style="float:right;cursor:pointer" />
+                                <img src="https://img.icons8.com/ultraviolet/28/000000/edit-property.png" onclick="Edit(@task.Id)" style="float:right;cursor:pointer" />
+                                <p class="mb-1">@task.Description</p>
+                                <small>Remind me </small>
+                            </a>
+
+                            @*<button onclick="Check(@task.Id)">Done</button>
+                    <button onclick="Delete(@task.Id)">Delete</button>
+                    <button onclick="Edit(@task.Id)">Edit</button>*@
+                        </li>
+                        <br />
+                    }
+                </ul>
+            </div>
     </div>
 
 

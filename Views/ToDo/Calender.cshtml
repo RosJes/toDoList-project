@@ -30,6 +30,7 @@
             </div>
         </li>
     </ul>
+    <h1 style="padding-left:100px">@DateTime.Now.Year</h1>
     <div class="grid-container">
         <div class="grid-item">Mon</div>
         <div class="grid-item">Tue</div>
@@ -46,20 +47,20 @@
             }
             else
             {
-    <div class="grid-item">
-        @day.Day.Day
-    <ul>
+                <div class="grid-item">
+                    @day.Day.Day
+                    <ul>
 
-        @foreach (var item in day.bookedTask)
-        {
-            if (day.Day.Day == item.TaskDate.Day&&day.Day.Month==item.TaskDate.Month)
-            {
-        <li> @item.Name @item.TaskDate.Hour:@item.TaskDate.Minute</li>
-            }
+                        @foreach (var item in day.bookedTask)
+                        {
+                            if (day.Day.Day == item.TaskDate.Day && day.Day.Month == item.TaskDate.Month)
+                            {
+                                <li> @item.Name @item.TaskDate.Hour:@item.TaskDate.Minute</li>
+                            }
 
-        }
-    </ul>
-    </div>
+                        }
+                    </ul>
+                </div>
 
             }
 
