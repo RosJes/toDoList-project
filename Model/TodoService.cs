@@ -13,12 +13,12 @@ namespace toDoList_project.Model
         //// Our "poor mans" DB
         List<Todo> _tasks = new List<Todo>
         {
-            new Todo { Id = 1, Name = "Meet Friend",TaskDate=DateTime.Parse("08/05/2020 22:34:11"), Cathegory = "Home",Description="Jane att 10:00"},
+            new Todo { Id = 1, Name = "Mow Lawn",TaskDate=DateTime.Parse("08/03/2020 12:34:11"), Cathegory = "Home",Description="Garden"},
             new Todo { Id = 2, Name = "Clean House",TaskDate=DateTime.Parse("08/04/2020 22:34:11"), Cathegory = "Home",Description="Reminder:Don't forget the fridge"},
             new Todo { Id = 3, Name = "Buy Groceries",TaskDate=DateTime.Parse("07/15/2020 22:34:11"), Cathegory = "Home",Description="Apples,Pasta,Ketchup"},
             new Todo { Id = 4, Name = "Buy Groceries",TaskDate= DateTime.Parse("08/18/2018 07:22:16"), Cathegory = "Home",Description="Apples,Pasta,Ketchup"},
          new Todo { Id = 5, Name = "Leave Report",TaskDate=DateTime.Parse("07/29/2020 22:34:11"), Cathegory = "Work",Description="Jane att 10:00"},
-            new Todo { Id = 6, Name = "Book meeting",TaskDate=DateTime.Now, Cathegory = "Work",Description="Promotion"},
+            new Todo { Id = 6, Name = "Send projects",TaskDate=DateTime.Parse("08/03/2020 13:34:11"), Cathegory = "Work",Description="Academic Work"},
             new Todo { Id = 7, Name = "Talk to John",TaskDate=DateTime.Now, Cathegory = "Work",Description="Lunch"},
             new Todo { Id = 8, Name = "Call Ellen",TaskDate= DateTime.Parse("08/18/2018 07:22:16"), Cathegory = "Work",Description="+42738056892"}
         };
@@ -26,6 +26,10 @@ namespace toDoList_project.Model
         public Todo[] GetAll(string cathegory)
         {
             return _tasks.Where(o=>o.Cathegory==cathegory).OrderByDescending(o => o.TaskDate).ToArray();
+        }
+        public Todo[] GetAll()
+        {
+            return _tasks.ToArray();
         }
         static int id = 4;
         public void Create(CreateVM task)
@@ -131,6 +135,11 @@ namespace toDoList_project.Model
         {
             return _tasks.Select(o=>o.Cathegory).Distinct().ToArray();
         }
+        public Todo[] GetAllByDate(DateTime date)
+        {
+            return _tasks.Where(o => o.TaskDate == date).ToArray();
+        }
+
     }
 }
 

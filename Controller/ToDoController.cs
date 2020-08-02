@@ -26,6 +26,14 @@ namespace toDoList_project.Controllers
             // Show empty form
             return View();
         }
+        [Route("_list")]
+        [HttpGet]
+        public IActionResult _list()
+        {
+            var model = service.GetAll();
+            return View(model);
+        }
+
         [Route("_calender/{year}/{month}/{cathegory}")]
         [HttpGet]
         public IActionResult _calender(int year, int month, string cathegory)
