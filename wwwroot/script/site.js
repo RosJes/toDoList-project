@@ -15,7 +15,7 @@ function Check(id) {
 
 ShowForm("Home")
 CatNavBar()
-calender(2020,07,'Home')
+calender(Date.now.year,Date.now.month,'Home')
 function calender(year, month, cathegory) {
     fetch("/_calender/" + year + '/' + month + '/'+cathegory,
         {
