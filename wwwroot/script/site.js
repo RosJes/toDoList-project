@@ -13,7 +13,7 @@ function Check(id) {
     }
     counter++
 }
-
+list()
 ShowForm("Home")
 CatNavBar()
 calender(2020,08,'Home')
@@ -38,6 +38,16 @@ function ShowForm(x) {
             document.getElementById("list").innerHTML = html);
 
 }
+function list() {
+    fetch("/_list",
+        {
+            method: "GET",
+        })
+        .then(res => res.text())
+        .then(html =>
+            document.getElementById("_list").innerHTML = html);
+}
+
 function CatNavBar() {
     fetch("/_CatNavBar",
         {

@@ -31,7 +31,7 @@ namespace toDoList_project.Controllers
         public IActionResult _list()
         {
             var model = service.GetAll();
-            return View(model);
+            return PartialView(model);
         }
 
         [Route("_calender/{year}/{month}/{cathegory}")]

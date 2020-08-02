@@ -1,0 +1,40 @@
+﻿@model toDoList_project.Model.Todo[]
+    <div class="container">
+        <div id="Delete"></div>
+        <ul class="list-group">
+            @foreach (var task in Model)
+            {
+                var days = task.TaskDate.Day - DateTime.Today.Day;
+                
+
+                @if (days<= 7&& DateTime.Now.Year == task.TaskDate.Year && DateTime.Now.Month == task.TaskDate.Month)
+                {
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                @task.Name @task.TaskDate.Hour:@task.TaskDate.Minute @task.Cathegory
+                @if (days == 0)
+                {
+                    <span class="badge badge-primary badge-pill">Today</span>
+                }
+                else
+                {
+                    <span class="badge badge-primary badge-pill">@days days left</span>
+                }
+
+            </li>
+                }
+                else
+                {
+                    <li style="display:none"></li>
+                }
+
+            }
+
+        </ul>
+       
+
+         
+        
+    </div>
+
+
+
