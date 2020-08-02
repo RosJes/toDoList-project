@@ -27,7 +27,7 @@
             </div>
         </li>
     </ul>
-    <h1 style="padding-left:100px">@DateTime.Now.Year</h1>
+    <h1 style="padding-left:100px">@DateTime.Now.Year @DateTime.Now.ToString("MMMM");</h1>
     <div class="grid-container">
         <div class="grid-item">Mon</div>
         <div class="grid-item">Tue</div>
@@ -51,22 +51,39 @@
 
                         @foreach (var item in day.bookedTask)
                         {
-                            if (day.Day.Day == item.TaskDate.Day && day.Day.Month == item.TaskDate.Month&& day.Day.Year == item.TaskDate.Year)
+                            var days = item.TaskDate.Day - DateTime.Today.Day;
+                            if (day.Day.Day == item.TaskDate.Day && day.Day.Month == item.TaskDate.Month && day.Day.Year == item.TaskDate.Year)
                             {
-                        <li style="list-style:none">
-                            <img src="https://img.icons8.com/material/20/000000/planner--v1.png" /> <img src="https://img.icons8.com/material-sharp/20/000000/clock.png" />
-                            @item.Name 
-                        </li>
-                                if(item.TaskDate<DateTime.Today)
+                                <li style="list-style:none">
+                                    <img src="https://img.icons8.com/material/20/000000/planner--v1.png" /> <img src="https://img.icons8.com/material-sharp/20/000000/clock.png" />
+                                    @item.Name
+                                </li>
+                                if (item.TaskDate < DateTime.Today)
                                 {
-                    <li style="list-style:none">
-                        <p style="color:grey">Date has passed</p>
-                    </li>
+                                    <li style="list-style:none">
+                                        <p style="color:grey">Date has passed</p>
+                                    </li>
                                 }
-                        @*<li  style="list-style:none">
-                            <span>@item.TaskDate.Hour:@item.TaskDate.Minute</span>
-                          
-                        </li>*@
+                                if (days <= 3 && days >= 0)
+                                {
+                                    if (days == 0)
+                                    {
+                                        <li>
+                                            <small style="color:red">Today</small>
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        <li>
+                                            <small style="color:red">@days days left </small>
+                                        </li>
+                                    }
+
+                                }
+                                @*<li  style="list-style:none">
+                    <span>@item.TaskDate.Hour:@item.TaskDate.Minute</span>
+
+                </li>*@
                             }
 
                         }

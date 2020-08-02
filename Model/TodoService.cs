@@ -13,8 +13,8 @@ namespace toDoList_project.Model
         //// Our "poor mans" DB
         List<Todo> _tasks = new List<Todo>
         {
-            new Todo { Id = 1, Name = "Meet Friend",TaskDate=DateTime.Parse("08/29/2020 22:34:11"), Cathegory = "Home",Description="Jane att 10:00"},
-            new Todo { Id = 2, Name = "Clean House",TaskDate=DateTime.Parse("08/01/2020 22:34:11"), Cathegory = "Home",Description="Reminder:Don't forget the fridge"},
+            new Todo { Id = 1, Name = "Meet Friend",TaskDate=DateTime.Parse("08/05/2020 22:34:11"), Cathegory = "Home",Description="Jane att 10:00"},
+            new Todo { Id = 2, Name = "Clean House",TaskDate=DateTime.Parse("08/04/2020 22:34:11"), Cathegory = "Home",Description="Reminder:Don't forget the fridge"},
             new Todo { Id = 3, Name = "Buy Groceries",TaskDate=DateTime.Parse("07/15/2020 22:34:11"), Cathegory = "Home",Description="Apples,Pasta,Ketchup"},
             new Todo { Id = 4, Name = "Buy Groceries",TaskDate= DateTime.Parse("08/18/2018 07:22:16"), Cathegory = "Home",Description="Apples,Pasta,Ketchup"},
          new Todo { Id = 5, Name = "Leave Report",TaskDate=DateTime.Parse("07/29/2020 22:34:11"), Cathegory = "Work",Description="Jane att 10:00"},
