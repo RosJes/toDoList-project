@@ -13,14 +13,14 @@ namespace toDoList_project.Model
         //// Our "poor mans" DB
         List<Todo> _tasks = new List<Todo>
         {
-            new Todo { Id = 1, Name = "Mow Lawn",TaskDate=DateTime.Parse("08/03/2020 12:34:11"), Cathegory = "Home",Description="Garden"},
-            new Todo { Id = 2, Name = "Clean House",TaskDate=DateTime.Parse("08/04/2020 22:34:11"), Cathegory = "Home",Description="Reminder:Don't forget the fridge"},
-            new Todo { Id = 3, Name = "Buy Groceries",TaskDate=DateTime.Parse("07/15/2020 22:34:11"), Cathegory = "Home",Description="Apples,Pasta,Ketchup"},
-            new Todo { Id = 4, Name = "Buy Groceries",TaskDate= DateTime.Parse("08/18/2018 07:22:16"), Cathegory = "Home",Description="Apples,Pasta,Ketchup"},
-         new Todo { Id = 5, Name = "Leave Report",TaskDate=DateTime.Parse("07/29/2020 22:34:11"), Cathegory = "Work",Description="Jane att 10:00"},
-            new Todo { Id = 6, Name = "Send projects",TaskDate=DateTime.Parse("08/03/2020 13:34:11"), Cathegory = "Work",Description="Academic Work"},
-            new Todo { Id = 7, Name = "Talk to John",TaskDate=DateTime.Now, Cathegory = "Work",Description="Lunch"},
-            new Todo { Id = 8, Name = "Call Ellen",TaskDate= DateTime.Parse("08/18/2018 07:22:16"), Cathegory = "Work",Description="+42738056892"}
+            new Todo { Id = 1, Name = "Mow Lawn",TaskDate=DateTime.Parse("08/03/2020 12:34:11"), Cathegory = "Home",Description="Garden",isImportant=false},
+            new Todo { Id = 2, Name = "Clean House",TaskDate=DateTime.Parse("08/04/2020 22:34:11"), Cathegory = "Home",Description="Reminder:Don't forget the fridge",isImportant=true},
+            new Todo { Id = 3, Name = "Buy Groceries",TaskDate=DateTime.Parse("08/05/2020 22:34:11"), Cathegory = "Home",Description="Apples,Pasta,Ketchup",isImportant=true},
+            new Todo { Id = 4, Name = "Buy Groceries",TaskDate= DateTime.Parse("08/18/2018 07:22:16"), Cathegory = "Home",Description="Apples,Pasta,Ketchup",isImportant=false},
+         new Todo { Id = 5, Name = "Leave Report",TaskDate=DateTime.Parse("07/29/2020 22:34:11"), Cathegory = "Work",Description="Jane att 10:00",isImportant=false},
+            new Todo { Id = 6, Name = "Send projects",TaskDate=DateTime.Parse("08/05/2020 13:34:11"), Cathegory = "Work",Description="Academic Work",isImportant=true},
+            new Todo { Id = 7, Name = "Talk to John",TaskDate=DateTime.Now, Cathegory = "Work",Description="Lunch",isImportant=true},
+            new Todo { Id = 8, Name = "Call Ellen",TaskDate= DateTime.Parse("08/18/2018 07:22:16"), Cathegory = "Work",Description="+42738056892",isImportant=true}
         };
         Calender calender = new Calender();
         public Todo[] GetAll(string cathegory)
@@ -41,6 +41,7 @@ namespace toDoList_project.Model
                TaskDate=task.TaskDate,
                Description=task.Description,
                Cathegory=task.Cathegory,
+                isImportant = task.isImportant
             }
                 );
             id++;
@@ -63,6 +64,7 @@ namespace toDoList_project.Model
                 TaskDate = task.TaskDate,
                 Description = task.Description,
                 Cathegory = task.Cathegory,
+                isImportant=task.isImportant
             }
                 );
             _tasks.Remove(GetById(task.Id));

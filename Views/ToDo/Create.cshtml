@@ -20,10 +20,12 @@
             <span asp-validation-for="Description"></span>
             <label style="display:none" asp-for="TaskDate"></label>
             <input asp-for="TaskDate" />
-            <span asp-validation-for="Cathegory"></span>
             <label style="display:none" asp-for="Cathegory"></label>
             <input asp-for="Cathegory" placeholder="Cathegory..." />
             <span asp-validation-for="Cathegory"></span>
+            <label style="display:none" asp-for="isImportant"></label>
+            <input asp-for="isImportant" placeholder="Remind me" />
+            <span asp-validation-for="isImportant"></span>
             <input type="submit" value="Add" />
         </form>
     </div>

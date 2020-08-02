@@ -18,7 +18,7 @@
                     var days = task.TaskDate.Day - DateTime.Today.Day;
 
                     <span style="display:none" id="@task.Id">false</span>
-                    if (days<=3&&days>=0 && DateTime.Now.Year == task.TaskDate.Year && DateTime.Now.Month == task.TaskDate.Month)
+                    if (days<=3&&days>=0 && DateTime.Now.Year == task.TaskDate.Year && DateTime.Now.Month == task.TaskDate.Month&&task.isImportant)
                     {
                         <li style=" list-style-type: none;">
                             <div class="list-group">
