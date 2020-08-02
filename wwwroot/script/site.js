@@ -1,4 +1,5 @@
-﻿let counter = 0;
+﻿//new Date()
+let counter = 0;
 function Check(id) {
     let x = document.getElementById(id)
     let li = document.getElementById('item '+id)
@@ -15,7 +16,7 @@ function Check(id) {
 
 ShowForm("Home")
 CatNavBar()
-calender(Date.now.year,Date.now.month,'Home')
+calender(2020,08,'Home')
 function calender(year, month, cathegory) {
     fetch("/_calender/" + year + '/' + month + '/'+cathegory,
         {

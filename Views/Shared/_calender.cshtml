@@ -47,7 +47,7 @@
             {
                 <div class="grid-item">
                     @day.Day.Day
-                    <ul>
+                    <ul class="tasklist">
 
                         @foreach (var item in day.bookedTask)
                         {
@@ -57,9 +57,16 @@
                             <img src="https://img.icons8.com/material/20/000000/planner--v1.png" /> <img src="https://img.icons8.com/material-sharp/20/000000/clock.png" />
                             @item.Name 
                         </li>
-                        <li style="list-style:none">
-                           @*@item.TaskDate.Hour:@item.TaskDate.Minute*@
-                        </li>
+                                if(item.TaskDate<DateTime.Today)
+                                {
+                    <li style="list-style:none">
+                        <p style="color:grey">Date has passed</p>
+                    </li>
+                                }
+                        @*<li  style="list-style:none">
+                            <span>@item.TaskDate.Hour:@item.TaskDate.Minute</span>
+                          
+                        </li>*@
                             }
 
                         }
