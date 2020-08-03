@@ -1,6 +1,5 @@
 ﻿//new Date()
 let counter = 0;
-
 function Check(id) {
     let x = document.getElementById(id)
     let li = document.getElementById('item '+id)
