@@ -11,12 +11,9 @@ namespace toDoList_project.Controllers
     public class ToDoController : Controller
     {
         TodoService service;
-        CalenderService calender;
-
-        public ToDoController(TodoService service,CalenderService calender) // DI
+        public ToDoController(TodoService service) // DI
         {
             this.service = service;
-            this.calender = calender;
         }
         [Route("")]
         [Route("Index")]

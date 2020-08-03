@@ -11,7 +11,7 @@
 <body>
 
     <div class="form-group" style="padding-left:200px">
-        <form id="form"asp-controller="task" asp-action="create">
+        <form id="form" asp-controller="task" asp-action="create">
             <label style="display:none" asp-for="Name"></label>
             <input asp-for="Name" placeholder="New Task..." />
             <span asp-validation-for="Name"></span>
@@ -27,11 +27,10 @@
 
 
             <input type='checkbox' onchange='handleChange(this);' asp-for="isImportant" placeholder="Remind me" />
-            @*<input asp-for="isImportant" placeholder="Remind me" />*@
             <span asp-validation-for="isImportant"></span>
 
             <label style="display:none" asp-for="Reminder"></label>
-            <input  id="important" style="display:none" asp-for="Reminder" placeholder="Remind me" />
+            <input id="important" style="display:none" asp-for="Reminder" placeholder="Remind me" />
             <span asp-validation-for="Reminder"></span>
             <input type="submit" value="Add" />
         </form>
@@ -40,9 +39,10 @@
     <div id="list"></div>
 </body>
 </html>
-<script>
-    var x = document.getElementById('important').value = 0
-    var y = document.getElementById('important')
+    <script>
+        var x = document.getElementById('important').value = 0
+        document.getElementById("important").placeholder = "select days..";
+        var y = document.getElementById('important')
     function handleChange(checkbox) {
         if (checkbox.checked == true) {
             y.style.display = 'inline'
@@ -50,7 +50,8 @@
         } else {
             y.style.display = 'none';
         }
-    }
+        }
+       
 </script>
 
 

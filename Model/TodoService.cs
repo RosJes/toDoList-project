@@ -17,13 +17,12 @@ namespace toDoList_project.Model
             new Todo { Id = 2, Name = "Clean House",TaskDate=DateTime.Parse("08/04/2020 22:34:11"), Cathegory = "Home",Description="Reminder:Don't forget the fridge",isImportant=true,Reminder=3},
             new Todo { Id = 3, Name = "Buy Groceries",TaskDate=DateTime.Parse("08/05/2020 22:34:11"), Cathegory = "Home",Description="Apples,Pasta,Ketchup",isImportant=true,Reminder=7},
             new Todo { Id = 4, Name = "Buy Groceries",TaskDate= DateTime.Parse("08/18/2018 07:22:16"), Cathegory = "Home",Description="Apples,Pasta,Ketchup",isImportant=false},
-         new Todo { Id = 5, Name = "Leave Report",TaskDate=DateTime.Parse("07/29/2020 22:34:11"), Cathegory = "Work",Description="Jane att 10:00",isImportant=false},
+            new Todo { Id = 5, Name = "Leave Report",TaskDate=DateTime.Parse("07/29/2020 22:34:11"), Cathegory = "Work",Description="Jane att 10:00",isImportant=false},
             new Todo { Id = 6, Name = "Send projects",TaskDate=DateTime.Parse("08/05/2020 13:34:11"), Cathegory = "Work",Description="Academic Work",isImportant=true,Reminder=5},
             new Todo { Id = 7, Name = "Talk to John",TaskDate=DateTime.Now, Cathegory = "Work",Description="Lunch",isImportant=true,Reminder=1},
             new Todo { Id = 8, Name = "Call Ellen",TaskDate= DateTime.Parse("08/18/2018 07:22:16"), Cathegory = "Work",Description="+42738056892",isImportant=true,Reminder=4}
         };
       
-        Calender calender = new Calender();
         public Todo[] GetAll(string cathegory)
         {
             return _tasks.Where(o=>o.Cathegory==cathegory).OrderByDescending(o => o.TaskDate).ToArray();
@@ -119,7 +118,6 @@ namespace toDoList_project.Model
             var hours = 22;
             var minutes = 34;
             var seconds = 11;
-            var reservations = _tasks.ToArray();
             DateTime date = new DateTime(year, month,days,hours,minutes,seconds);
             var calendarDate = new DateTime(date.Year, date.Month, 1);
             int weekdayInt = (int)new DateTime(date.Year, date.Month, 1).DayOfWeek - 1; //mon = 1, tis = 2 osv...
