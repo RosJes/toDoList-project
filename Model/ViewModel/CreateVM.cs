@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace toDoList_project.Model.ViewModel
 {
@@ -14,5 +15,6 @@ namespace toDoList_project.Model.ViewModel
         public string Description { get; set; }
         public bool ischecked { get; set; }
         public bool isImportant { get; set; }
+        public int Reminder { get; set; }
     }
 }

@@ -8,46 +8,14 @@
         <form asp-action="Edit" style="margin: 0; padding: 0;">
             <p>
 
-                <input style="display: inline;" asp-for="Name"placeholder="Task..."  />
-                <input style="display: inline;" asp-for="Description"placeholder="Description..."  />
-                <input style="display: inline;" asp-for="TaskDate" placeholder="Date..."  />
+                <input style="display: inline;" asp-for="Name" placeholder="Task..." />
+                <input style="display: inline;" asp-for="Description" placeholder="Description..." />
+                <input style="display: inline;" asp-for="TaskDate" placeholder="Date..." />
                 <input style="display: inline;" asp-for="Cathegory" placeholder="Cathegory..." />
-                <input style="display: inline;" asp-for="isImportant" placeholder="Remind me..." />
+                <input id="important" style="display: inline;" asp-for="isImportant" placeholder="Remind me..." />
+                <input id="reminder" style="visibility:visible" asp-for="Reminder" placeholder="Remind me" />
                 <input type="submit" value="Save" style="display:inline" />
             </p>
         </form>
     
-
-
-@*<div class="row" style="display:inline">
-    <div class="col-md-4"style="margin: 0; padding: 0;">
-        <form asp-action="Edit" style="margin: 0; padding: 0;">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group"style="display:inline">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control"style="display:inline" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group"style="display:inline">
-                <label asp-for="TaskDate" class="control-label"></label>
-                <input asp-for="TaskDate" class="form-control" style="display:inline"/>
-                <span asp-validation-for="TaskDate" class="text-danger"></span>
-            </div>
-            <div class="form-group"style="display:inline">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" style="display:inline"/>
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="form-group"style="display:inline">
-                <input type="submit" value="Save" class="btn btn-primary"style="display:inline" />
-                <a asp-action="Create">Back to List</a>
-            </div>
-        </form>
-        <div>
-           
-        </div>
-    </div>
-</div>*@
-
-
 

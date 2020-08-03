@@ -14,5 +14,6 @@ namespace toDoList_project.Model
         public string Description { get; set; }
         public bool ischecked { get; set; }
         public bool isImportant{ get; set; }
+        public int Reminder { get; set; }
     }
 }

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
 </head>
 <body>
+   
     <div class="form-group" style="padding-left:200px">
         <form asp-controller="task" asp-action="create">
             <label style="display:none" asp-for="Name"></label>
@@ -23,9 +24,14 @@
             <label style="display:none" asp-for="Cathegory"></label>
             <input asp-for="Cathegory" placeholder="Cathegory..." />
             <span asp-validation-for="Cathegory"></span>
-            <label style="display:none" asp-for="isImportant"></label>
-            <input asp-for="isImportant" placeholder="Remind me" />
+
+            
+            <input type='checkbox' onchange='handleChange(this);' asp-for="isImportant" placeholder="Remind me" />
             <span asp-validation-for="isImportant"></span>
+
+            <label style="display:none" asp-for="Reminder"></label>
+            <input id="important" style="display:none" asp-for="Reminder" placeholder="Remind me" />
+            <span asp-validation-for="Reminder"></span>
             <input type="submit" value="Add" />
         </form>
     </div>
@@ -33,6 +39,19 @@
     <div id="list"></div>
 </body>
 </html>
+<script>
+        var x = document.getElementById('important')
+    function handleChange(checkbox) {
+        if (checkbox.checked == true) {
+            x.style.display = 'inline'
+
+        } else {
+            x.style.display = 'none';
+            
+        }
+    }
+
+</script>
 
 @section scripts
 {

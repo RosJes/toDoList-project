@@ -14,13 +14,13 @@ namespace toDoList_project.Model
         List<Todo> _tasks = new List<Todo>
         {
             new Todo { Id = 1, Name = "Mow Lawn",TaskDate=DateTime.Parse("08/03/2020 12:34:11"), Cathegory = "Home",Description="Garden",isImportant=false},
-            new Todo { Id = 2, Name = "Clean House",TaskDate=DateTime.Parse("08/04/2020 22:34:11"), Cathegory = "Home",Description="Reminder:Don't forget the fridge",isImportant=true},
-            new Todo { Id = 3, Name = "Buy Groceries",TaskDate=DateTime.Parse("08/05/2020 22:34:11"), Cathegory = "Home",Description="Apples,Pasta,Ketchup",isImportant=true},
+            new Todo { Id = 2, Name = "Clean House",TaskDate=DateTime.Parse("08/04/2020 22:34:11"), Cathegory = "Home",Description="Reminder:Don't forget the fridge",isImportant=true,Reminder=3},
+            new Todo { Id = 3, Name = "Buy Groceries",TaskDate=DateTime.Parse("08/05/2020 22:34:11"), Cathegory = "Home",Description="Apples,Pasta,Ketchup",isImportant=true,Reminder=7},
             new Todo { Id = 4, Name = "Buy Groceries",TaskDate= DateTime.Parse("08/18/2018 07:22:16"), Cathegory = "Home",Description="Apples,Pasta,Ketchup",isImportant=false},
          new Todo { Id = 5, Name = "Leave Report",TaskDate=DateTime.Parse("07/29/2020 22:34:11"), Cathegory = "Work",Description="Jane att 10:00",isImportant=false},
-            new Todo { Id = 6, Name = "Send projects",TaskDate=DateTime.Parse("08/05/2020 13:34:11"), Cathegory = "Work",Description="Academic Work",isImportant=true},
-            new Todo { Id = 7, Name = "Talk to John",TaskDate=DateTime.Now, Cathegory = "Work",Description="Lunch",isImportant=true},
-            new Todo { Id = 8, Name = "Call Ellen",TaskDate= DateTime.Parse("08/18/2018 07:22:16"), Cathegory = "Work",Description="+42738056892",isImportant=true}
+            new Todo { Id = 6, Name = "Send projects",TaskDate=DateTime.Parse("08/05/2020 13:34:11"), Cathegory = "Work",Description="Academic Work",isImportant=true,Reminder=5},
+            new Todo { Id = 7, Name = "Talk to John",TaskDate=DateTime.Now, Cathegory = "Work",Description="Lunch",isImportant=true,Reminder=1},
+            new Todo { Id = 8, Name = "Call Ellen",TaskDate= DateTime.Parse("08/18/2018 07:22:16"), Cathegory = "Work",Description="+42738056892",isImportant=true,Reminder=4}
         };
         Calender calender = new Calender();
         public Todo[] GetAll(string cathegory)
@@ -31,7 +31,7 @@ namespace toDoList_project.Model
         {
             return _tasks.OrderBy(o => o.TaskDate).ToArray();
         }
-        static int id = 4;
+        static int id = 9;
         public void Create(CreateVM task)
         {
             _tasks.Add(new Todo
@@ -41,9 +41,10 @@ namespace toDoList_project.Model
                TaskDate=task.TaskDate,
                Description=task.Description,
                Cathegory=task.Cathegory,
-                isImportant = task.isImportant
+                isImportant = task.isImportant,
+               Reminder=task.Reminder
             }
-                );
+            );
             id++;
         }
         public void Delete(int id)
@@ -57,17 +58,37 @@ namespace toDoList_project.Model
         }
         public void Edit(Todo task)
         {
-            _tasks.Add(new Todo
+            if(!task.isImportant)
             {
-                Id = task.Id,
-                Name = task.Name,
-                TaskDate = task.TaskDate,
-                Description = task.Description,
-                Cathegory = task.Cathegory,
-                isImportant=task.isImportant
-            }
+                _tasks.Add(new Todo
+                {
+                    Id = task.Id,
+                    Name = task.Name,
+                    TaskDate = task.TaskDate,
+                    Description = task.Description,
+                    Cathegory = task.Cathegory,
+                    isImportant = task.isImportant,
+                    Reminder = 0
+                }
                 );
+            }
+            else
+            {
+                _tasks.Add(new Todo
+                {
+                    Id = task.Id,
+                    Name = task.Name,
+                    TaskDate = task.TaskDate,
+                    Description = task.Description,
+                    Cathegory = task.Cathegory,
+                    isImportant = task.isImportant,
+                    Reminder = task.Reminder
+                }
+               );
+            }
+            
             _tasks.Remove(GetById(task.Id));
+            
 
 
         }

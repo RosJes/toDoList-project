@@ -64,7 +64,7 @@
                                         <p style="color:grey">Date has passed</p>
                                     </li>
                                 }
-                                if (days <= 3 && days >= 0 && DateTime.Now.Year == item.TaskDate.Year && DateTime.Now.Month == item.TaskDate.Month)
+                                if (days <= item.Reminder && days >= 0 && DateTime.Now.Year == item.TaskDate.Year && DateTime.Now.Month == item.TaskDate.Month)
                                 {
                                     if (days == 0)
                                     {
