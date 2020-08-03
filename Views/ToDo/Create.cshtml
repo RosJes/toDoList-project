@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
 </head>
 <body>
-   
+
     <div class="form-group" style="padding-left:200px">
-        <form asp-controller="task" asp-action="create">
+        <form id="form"asp-controller="task" asp-action="create">
             <label style="display:none" asp-for="Name"></label>
             <input asp-for="Name" placeholder="New Task..." />
             <span asp-validation-for="Name"></span>
@@ -25,14 +25,14 @@
             <input asp-for="Cathegory" placeholder="Cathegory..." />
             <span asp-validation-for="Cathegory"></span>
 
-            
-            @*<input type='checkbox' onchange='handleChange(this);' asp-for="isImportant" placeholder="Remind me" />*@
-            <input asp-for="isImportant" placeholder="Remind me" />
+
+            <input type='checkbox' onchange='handleChange(this);' asp-for="isImportant" placeholder="Remind me" />
+            @*<input asp-for="isImportant" placeholder="Remind me" />*@
             <span asp-validation-for="isImportant"></span>
 
-            @*<label style="display:none" asp-for="Reminder"></label>
-            <input id="important"style="display:none" asp-for="Reminder" placeholder="Remind me" />
-            <span asp-validation-for="Reminder"></span>*@
+            <label style="display:none" asp-for="Reminder"></label>
+            <input  id="important" style="display:none" asp-for="Reminder" placeholder="Remind me" />
+            <span asp-validation-for="Reminder"></span>
             <input type="submit" value="Add" />
         </form>
     </div>
@@ -40,6 +40,29 @@
     <div id="list"></div>
 </body>
 </html>
+<script >@*src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+        asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+        asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+        crossorigin="anonymous"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">*@
+    var x = document.getElementById('important').value = 0
+    
+    function handleChange(checkbox) {
+        if (checkbox.checked == true) {
+
+            var x = document.getElementById('important')
+            x.style.display = 'inline'
+          
+
+        } else {
+            var x = document.getElementById('important').value = 0
+
+            x.style.display = 'none';
+            //create rest of the form find div and append attributes
+        }
+    }
+
+</script>
 
 
 @section scripts
