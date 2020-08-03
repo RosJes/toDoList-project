@@ -46,20 +46,13 @@
         crossorigin="anonymous"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">*@
     var x = document.getElementById('important').value = 0
-    
+    var y = document.getElementById('important')
     function handleChange(checkbox) {
         if (checkbox.checked == true) {
-
-            var x = document.getElementById('important')
-            x.style.display = 'inline'
-          
+            y.style.display = 'inline'
 
         } else {
-            var x = document.getElementById('important').value = 0
-
-            x.style.display = 'none';
-            //create rest of the form find div and append attributes
-        }
+            y.style.display = 'none';
     }
 
 </script>
