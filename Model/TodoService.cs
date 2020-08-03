@@ -22,6 +22,7 @@ namespace toDoList_project.Model
             new Todo { Id = 7, Name = "Talk to John",TaskDate=DateTime.Now, Cathegory = "Work",Description="Lunch",isImportant=true,Reminder=1},
             new Todo { Id = 8, Name = "Call Ellen",TaskDate= DateTime.Parse("08/18/2018 07:22:16"), Cathegory = "Work",Description="+42738056892",isImportant=true,Reminder=4}
         };
+      
         Calender calender = new Calender();
         public Todo[] GetAll(string cathegory)
         {
@@ -31,20 +32,39 @@ namespace toDoList_project.Model
         {
             return _tasks.OrderBy(o => o.TaskDate).ToArray();
         }
-        static int id = 9;
+        static int id;
         public void Create(CreateVM task)
         {
-            _tasks.Add(new Todo
+            id = _tasks.Count + 1;
+            if(!task.isImportant)
             {
-               Id=id,
-               Name=task.Name,
-               TaskDate=task.TaskDate,
-               Description=task.Description,
-               Cathegory=task.Cathegory,
-                isImportant = task.isImportant,
-               Reminder=task.Reminder
+                _tasks.Add(new Todo
+                {
+                    Id = id,
+                    Name = task.Name,
+                    TaskDate = task.TaskDate,
+                    Description = task.Description,
+                    Cathegory = task.Cathegory,
+                    isImportant = task.isImportant,
+                    Reminder = 0
+                }
+           );
             }
-            );
+            else
+            {
+                _tasks.Add(new Todo
+                {
+                    Id = id,
+                    Name = task.Name,
+                    TaskDate = task.TaskDate,
+                    Description = task.Description,
+                    Cathegory = task.Cathegory,
+                    isImportant = task.isImportant,
+                    Reminder = task.Reminder
+                }
+         );
+            }
+           
             id++;
         }
         public void Delete(int id)
