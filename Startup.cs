@@ -24,7 +24,6 @@ namespace toDoList_project
 
             // Register CustomersService for DI
             services.AddSingleton<TodoService>();
-            services.AddTransient<CalenderService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
